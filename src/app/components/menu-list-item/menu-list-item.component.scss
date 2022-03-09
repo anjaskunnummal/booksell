@@ -1,0 +1,38 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    outline: none;
+    width: 100%;
+    overflow: hidden;
+  
+    // .mat-list-item.active {
+    //   background-color: #024c8e;
+    //   color: #ffff;
+    //   border-left: 3px solid #ffff;
+    // }
+  
+    // &:hover,
+    // &:focus {
+    //   > .mat-list-item:not(.expanded) {
+    //     background-color: #00559f;
+    //   }
+    // }
+  }
+  
+  .mat-list-item {
+    color: white;
+  
+    .routeIcon {
+      margin-right: 10px;
+    }
+  }
+  
+  .child-list {
+    .mat-list-item {
+      background-color: #00559f;
+    }
+    .mat-list-item.active {
+      background-color: #024c8e;
+    }
+  }
+  

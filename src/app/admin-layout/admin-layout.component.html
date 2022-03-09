@@ -1,3 +1,15 @@
-<p>
-  admin-layout works!
-</p>
+<mat-toolbar class="header">
+  <button *ngIf="navbutton" mat-icon-button id="menu" (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span style="color: white;font-weight: bold;">TestName</span>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
+  [fixedTopGap]>
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
