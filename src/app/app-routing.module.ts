@@ -4,17 +4,17 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full',
-  }, 
+  // {
+  //   path: '',
+  //   redirectTo: 'home',
+  //   pathMatch: 'full',
+  // },
   {
     path:'',component:AdminLayoutComponent,
     // canActivate: [AuthGuard],
     children: [
       {
-        path: 'home',
+        path: '',
         loadChildren: () => import('./admin-layout/admin-layout.module').then(mod => mod.AdminLayoutModule),
       }
     ]

@@ -1,0 +1,35 @@
+.main-container{
+  padding: 2rem 2rem 2rem 2rem;
+ display: flex;
+ gap: 20px;
+}
+.card{
+  width:250px;
+  height: 300px;
+  justify-content: space-between;
+  // border: 2px solid black;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+
+}
+.card-header{
+  display: flex;
+  justify-content: center;
+  img{
+    width: 248px;
+    height: 200px;
+    border: 1px solid whitesmoke;
+  }
+}
+
+.card-body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-body-main{
+  padding-top: 1rem;
+}
+
+

@@ -1,4 +1,4 @@
-<h3
+<!-- <h3
   style="
     display: flex;
     justify-content: center;
@@ -8,4 +8,22 @@
   "
 >
   Available Soon
-</h3>
+</h3> -->
+<div class="main-container">
+  <div class="card" *ngFor="let book of book_item">
+    <div class="card-header">
+      <img src="{{book.image}}">
+    </div>
+    <div class="card-body-main">
+      <div class="card-body">
+        {{book.name}}
+      </div>
+      <div class="card-body">
+        {{book.price| currency:'INR'}}
+      </div>
+      <div class="card-body">
+        <button mat-flat-button color="warn">Add to cart</button>
+      </div>
+    </div>
+  </div>
+</div>

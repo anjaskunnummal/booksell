@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { HomeComponent } from '../pages/home/home.component';
+import { AddBookComponent } from '../pages/add-book/add-book.component';
+import { BookListComponent } from '../pages/book-list/book-list.component';
 
 @NgModule({
   imports: [
@@ -15,6 +17,9 @@ import { HomeComponent } from '../pages/home/home.component';
     ReactiveFormsModule,
     AngularMaterialModule,
   ],
-  declarations: [HomeComponent]
+  declarations: [
+  HomeComponent,
+  AddBookComponent,
+  BookListComponent]
 })
 export class AdminLayoutModule { }

@@ -14,9 +14,18 @@ export class SidebarComponent implements OnInit {
     {
       displayName: 'Home',
       iconName: 'home',
-      route: 'home',
+      route: '',
     },
-   
+    {
+      displayName: 'Add Book',
+      iconName: 'book',
+      route: 'add-book',
+    },
+    {
+      displayName: 'Books',
+      iconName: 'dns',
+      route: 'books',
+    },
   ];
 
   constructor() { }
