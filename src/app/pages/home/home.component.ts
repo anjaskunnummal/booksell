@@ -18,7 +18,31 @@ export class HomeComponent implements OnInit {
     name  :'ABC',
     price : 499
   },
-
+  {
+    image : 'https://media.gq.com/photos/5ad64204c8be07604e8b5f2f/1:1/w_1332,h_1332,c_limit/21-books-GQ-April-2018-041718-3x2.jpg',
+    name  :'ABC',
+    price : 499
+  },
+  {
+    image : 'https://media.gq.com/photos/5ad64204c8be07604e8b5f2f/1:1/w_1332,h_1332,c_limit/21-books-GQ-April-2018-041718-3x2.jpg',
+    name  :'ABC',
+    price : 499
+  },
+  {
+    image : 'https://media.gq.com/photos/5ad64204c8be07604e8b5f2f/1:1/w_1332,h_1332,c_limit/21-books-GQ-April-2018-041718-3x2.jpg',
+    name  :'ABC',
+    price : 499
+  },
+  {
+    image : 'https://media.gq.com/photos/5ad64204c8be07604e8b5f2f/1:1/w_1332,h_1332,c_limit/21-books-GQ-April-2018-041718-3x2.jpg',
+    name  :'ABC',
+    price : 499
+  },
+  {
+    image : 'https://media.gq.com/photos/5ad64204c8be07604e8b5f2f/1:1/w_1332,h_1332,c_limit/21-books-GQ-April-2018-041718-3x2.jpg',
+    name  :'ABC',
+    price : 499
+  }
 
 ]
 
