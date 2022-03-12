@@ -1,0 +1,58 @@
+.main-container {
+  padding: 1rem 1rem 1rem 1rem;
+  display: flex;
+  justify-content: center;
+  .form-container {
+    width: 60%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-radius: 1rem;
+  }
+  .form-header {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.h-stack {
+  padding: 0rem 1rem 0rem 1rem;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  // justify-content: space-between;
+}
+
+.file_input {
+  padding: 0rem 1rem 0rem 1rem;
+  mat-form-field {
+    width: 100%;
+  }
+}
+.form-btn {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 0.5rem;
+  button {
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .main-container {
+    padding: 1rem 1rem 1rem 1rem;
+    display: flex;
+    justify-content: center;
+    .form-container {
+      width: 100%;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+      border-radius: 1rem;
+    }
+    mat-form-field {
+      width: 100%;
+    }
+  }
+}

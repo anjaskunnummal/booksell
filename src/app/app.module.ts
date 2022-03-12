@@ -12,6 +12,7 @@ import { ComponentsModule } from './components/components.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
     RouterModule,
     AppRoutingModule,
     AngularMaterialModule,
+    NgScrollbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -22,7 +22,7 @@ export class SidebarComponent implements OnInit {
       route: 'add-book',
     },
     {
-      displayName: 'Books',
+      displayName: 'Added Books',
       iconName: 'dns',
       route: 'books',
     },

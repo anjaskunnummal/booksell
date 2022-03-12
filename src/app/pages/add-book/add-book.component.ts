@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddBookComponent implements OnInit {
 
+  Book_categories:string[]=['Study Book','Story','Poem']
+
   constructor() { }
 
   ngOnInit() {
