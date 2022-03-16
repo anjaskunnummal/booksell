@@ -3,33 +3,33 @@
     <div class="form-header">
       <h2>Add Book</h2>
     </div>
-    <form>
+    <form [formGroup]="bookForm" (ngSubmit)="Submit()">
       <div class="h-stack">
         <mat-form-field appearance="outline">
           <mat-label>Book name</mat-label>
-          <input type="text" matInput />
+          <input type="text" matInput formControlName="name"/>
         </mat-form-field>
         <mat-form-field appearance="outline">
-          <mat-label>Book name</mat-label>
-          <input type="text" matInput />
+          <mat-label>Description</mat-label>
+          <input type="text" matInput formControlName="description" />
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Author name</mat-label>
-          <input type="text" matInput />
+          <input type="text" matInput formControlName="author_name" />
         </mat-form-field>
       </div>
       <div class="h-stack">
         <mat-form-field appearance="outline">
           <mat-label>Price</mat-label>
-          <input type="text" matInput />
+          <input type="text" matInput formControlName="price" type="number" />
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Year</mat-label>
-          <input type="text" matInput />
+          <input type="text" matInput formControlName="year"/>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Category</mat-label>
-          <mat-select>
+          <mat-select formArrayName="category">
             <mat-option
               *ngFor="let category of Book_categories"
               [value]="category"
@@ -41,8 +41,8 @@
       </div>
       <div class="file_input">
         <mat-form-field appearance="outline" color="accent">
-          <input matInput readonly />
-          <input type="file" />
+          <input matInput readonly/>
+          <input type="file" accept="image/*" />
         </mat-form-field>
       </div>
       <div class="form-btn">

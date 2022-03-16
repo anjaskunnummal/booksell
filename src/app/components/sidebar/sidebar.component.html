@@ -1,11 +1,20 @@
 <div class="sidebar-container">
-  <div class="user-details">
-    <h3 style="color: white;padding-top: 15px;margin-left: 30px;">Welcome John</h3>
+  <!-- <div class="user-details"> -->
+  <div class="logo">
+    <img src="../../../assets/img/logo-svg.svg" width="100px" height="100px" />
   </div>
+  <div class="user_details">
+    <h3 style="color: white">Welcome Back!!</h3>
+  </div>
+
+  <!-- </div> -->
   <mat-nav-list>
     <app-menu-list-item
       *ngFor="let item of navItems"
       [item]="item"
     ></app-menu-list-item>
   </mat-nav-list>
+  <!-- <div class="footer">
+    <h2>hello</h2>
+  </div> -->
 </div>
