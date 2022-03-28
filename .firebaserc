@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "bokksell": {
+      "hosting": {
+        "Booksell": [
+          "bokksell"
+        ]
+      }
+    }
+  }
+}

@@ -5,6 +5,10 @@
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
 </div>
+<div class="progress-bar" *ngIf="loading_books">
+  <mat-spinner color="warn"></mat-spinner>
+</div>
+
 <div class="main-container">
   <div class="card" *ngFor="let book of book_item">
     <div class="card-header">

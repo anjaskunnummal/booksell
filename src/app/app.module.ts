@@ -14,6 +14,10 @@ import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +36,9 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     RouterModule,
     AppRoutingModule,
     AngularMaterialModule,
-    NgScrollbarModule
+    NgScrollbarModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

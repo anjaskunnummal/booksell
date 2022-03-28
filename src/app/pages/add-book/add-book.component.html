@@ -42,8 +42,15 @@
       <div class="file_input">
         <mat-form-field appearance="outline" color="accent">
           <input matInput readonly/>
-          <input type="file" accept="image/*" />
+          <input type="file" accept="image/*" (change)="onFileChanged($event)"/>
         </mat-form-field>
+        <span *ngIf="imageURL" >
+          <img
+              width="200" height="150"
+              [src]="imageURL"
+          />
+      </span>
+
       </div>
       <div class="form-btn">
         <button mat-flat-button>Save</button>
