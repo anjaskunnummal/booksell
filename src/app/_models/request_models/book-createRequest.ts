@@ -7,4 +7,5 @@ export class BookCreateApirequest{
   year?:string;
   price?:number;
   image?:string;
+  category?:string;
 }

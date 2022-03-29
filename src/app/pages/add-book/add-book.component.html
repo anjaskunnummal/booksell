@@ -7,7 +7,7 @@
       <div class="h-stack">
         <mat-form-field appearance="outline">
           <mat-label>Book name</mat-label>
-          <input type="text" matInput formControlName="name"/>
+          <input type="text" matInput formControlName="name" />
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Description</mat-label>
@@ -25,11 +25,11 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Year</mat-label>
-          <input type="text" matInput formControlName="year"/>
+          <input type="text" matInput formControlName="year" />
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Category</mat-label>
-          <mat-select formArrayName="category">
+          <mat-select formControlName="category">
             <mat-option
               *ngFor="let category of Book_categories"
               [value]="category"
@@ -41,16 +41,16 @@
       </div>
       <div class="file_input">
         <mat-form-field appearance="outline" color="accent">
-          <input matInput readonly/>
-          <input type="file" accept="image/*" (change)="onFileChanged($event)"/>
-        </mat-form-field>
-        <span *ngIf="imageURL" >
-          <img
-              width="200" height="150"
-              [src]="imageURL"
+          <input matInput readonly />
+          <input
+            type="file"
+            accept="image/*"
+            (change)="onFileChanged($event)"
           />
-      </span>
-
+        </mat-form-field>
+        <span *ngIf="imageURL">
+          <img width="200" height="150" [src]="imageURL" />
+        </span>
       </div>
       <div class="form-btn">
         <button mat-flat-button>Save</button>

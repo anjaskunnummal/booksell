@@ -18,8 +18,10 @@ export interface Books {
   styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'author_name', 'price', 'year'];
+  displayedColumns: string[] = ['name', 'author_name', 'price', 'year','action'];
   dataSource =  new MatTableDataSource<Books>();
+
+  public isLoadingBooks:boolean = false;
 
   constructor(
     private bookService:BookService,
@@ -41,9 +43,9 @@ export class BookListComponent implements OnInit {
   }
 
   getProductList() {
-    // this.isLoadingProducts = true;
+    this.isLoadingBooks = true;
     this.bookService.getBooklist().valueChanges().subscribe((products:any) => {
-      // this.isLoadingProducts = false;
+      this.isLoadingBooks = false;
       console.log(products)
       this.dataSource = new MatTableDataSource(products);
       this.dataSource.paginator != this.paginator;

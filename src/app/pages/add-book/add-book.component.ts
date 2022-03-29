@@ -52,6 +52,7 @@ export class AddBookComponent implements OnInit {
       price: bookform.price,
       year: bookform.year,
       image: this.imageURL ? this.imageURL : '',
+      category : bookform.category
     };
     this.bookService.addBooks(this.bookRequest).then(() => {
       this.openSnackBar('Book Added Successfully');

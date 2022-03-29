@@ -1,7 +1,7 @@
 <div class="search-bar">
   <mat-form-field appearance="outline">
-    <mat-label>Search Book</mat-label>
-    <input type="text" matInput/>
+    <mat-label>Search Book By Book name,Author name,year,type etc</mat-label>
+    <input type="text" matInput [(ngModel)]="term"/>
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
 </div>
@@ -10,7 +10,7 @@
 </div>
 
 <div class="main-container">
-  <div class="card" *ngFor="let book of book_item">
+  <div class="card" *ngFor="let book of book_item|filter:term">
     <div class="card-header">
       <img src="{{ book.image }}" />
     </div>

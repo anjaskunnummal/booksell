@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
 
  public book_item :any = [];
  public loading_books : boolean = false;
+ term=''
 
   constructor(private bookService:BookService) { }
 

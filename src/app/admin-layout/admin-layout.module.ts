@@ -8,6 +8,7 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
 import { HomeComponent } from '../pages/home/home.component';
 import { AddBookComponent } from '../pages/add-book/add-book.component';
 import { BookListComponent } from '../pages/book-list/book-list.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { BookListComponent } from '../pages/book-list/book-list.component';
     FormsModule,
     ReactiveFormsModule,
     AngularMaterialModule,
+    Ng2SearchPipeModule
   ],
   declarations: [
   HomeComponent,
