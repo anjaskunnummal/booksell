@@ -5,41 +5,47 @@ import { BookService } from 'src/app/services/book.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  public book_item: any = [];
+  public loading_books: boolean = false;
+  term = '';
 
- public book_item :any = [];
- public loading_books : boolean = false;
- term=''
-
-  constructor(private bookService:BookService) { }
+  constructor(private bookService: BookService) {}
 
   ngOnInit() {
-
-    this.fetchBook()
-
+    this.fetchBook();
   }
 
-  fetchBook(){
+  fetchBook() {
     this.book_item = [];
-    this.loading_books = true
-    this.bookService.getBooklist().valueChanges().subscribe(
-      (result:any)=>{
-        this.loading_books = false
-        this.book_item = result
-        console.log(result)
+    this.loading_books = true;
+    this.bookService
+      .getBooklist()
+      .valueChanges()
+      .subscribe((result: any) => {
+        this.loading_books = false;
+        // this.book_item = result
+        if(result !=null || result!=undefined){
+        var item: any = Object.keys(result).map((key) => ({
+          id_key: key,
+          books: result[key],
+        }));
+        this.book_item = item;
       }
-    ),
-    (err:any)=>{
-      console.log(err)
-    }
+      else{
+        this.book_item=[]
+      }
+        console.log('object item', this.book_item);
+
+        // console.log(result)
+      }),
+      (err: any) => {
+        console.log(err);
+      };
   }
-
-
-
 }
-
 
 //   {
 //     image : 'https://5.imimg.com/data5/SELLER/Default/2021/2/SA/IQ/HS/49559104/img-20210211-121925-500x500.jpg',

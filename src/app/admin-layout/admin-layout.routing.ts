@@ -7,5 +7,6 @@ import { HomeComponent } from '../pages/home/home.component';
 export const AdminLayoutRoutes: Routes = [
   {path:'',component:HomeComponent},
   {path:'add-book',component:AddBookComponent},
-  {path:'books',component:BookListComponent}
+  {path:'books',component:BookListComponent},
+  {path:'edit-book/:id',component:AddBookComponent},
 ];

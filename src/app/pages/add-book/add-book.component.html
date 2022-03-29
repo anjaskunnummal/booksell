@@ -53,7 +53,14 @@
         </span>
       </div>
       <div class="form-btn">
-        <button mat-flat-button>Save</button>
+        <button  mat-flat-button>
+          <span *ngIf="!button_spinner">Save</span>
+          <mat-progress-spinner
+            *ngIf="button_spinner"
+            [diameter]="24"
+            [mode]="'indeterminate'"
+          ></mat-progress-spinner>
+        </button>
       </div>
     </form>
   </div>

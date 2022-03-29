@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from 'src/app/services/book.service';
 import { BookCreateApirequest } from 'src/app/_models/request_models/book-createRequest';
 
@@ -18,6 +18,13 @@ export class AddBookComponent implements OnInit {
   public imageURL?: any;
   public imagePath?:string;
 
+  public button_spinner:boolean = false;
+
+  public book_id?:any=null;
+  // public isEditingMode : boolean = false;
+
+  public books:any=[]
+
   public bookForm: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
     description: new FormControl(''),
@@ -30,10 +37,24 @@ export class AddBookComponent implements OnInit {
   constructor(
     private _snackBar: MatSnackBar,
     private bookService: BookService,
-    private router:Router
-  ) {}
+    private router:Router,
+    private route:ActivatedRoute
+  ) {
+    this.book_id = this.route.snapshot.paramMap.get('id')
+    if(this.book_id!=null){
+      this.bookService.getBookbyId(this.book_id).valueChanges().subscribe((result:any)=>{
+        this.books = result
+        this.setBookdetails(this.books)
+      })
+    }
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
+
+  setBookdetails(books:any){
+  }
 
   Submit() {
     if (this.bookForm.invalid) {
@@ -45,6 +66,7 @@ export class AddBookComponent implements OnInit {
   }
 
   createBook(bookform: any) {
+    this.button_spinner = true
     this.bookRequest = {
       name: bookform.name,
       description: bookform.description,
@@ -55,9 +77,12 @@ export class AddBookComponent implements OnInit {
       category : bookform.category
     };
     this.bookService.addBooks(this.bookRequest).then(() => {
+      this.button_spinner = false;
       this.openSnackBar('Book Added Successfully');
       this.router.navigate(['/'])
 
+    }).catch((err:any)=>{
+      this.openSnackBar('something went wrong!!')
     });
   }
 
