@@ -9,6 +9,7 @@ import { HomeComponent } from '../pages/home/home.component';
 import { AddBookComponent } from '../pages/add-book/add-book.component';
 import { BookListComponent } from '../pages/book-list/book-list.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ConfirmationComponent } from '../modals_/confirmation/confirmation.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
   declarations: [
   HomeComponent,
   AddBookComponent,
-  BookListComponent]
+  BookListComponent,
+  ConfirmationComponent]
 })
 export class AdminLayoutModule { }

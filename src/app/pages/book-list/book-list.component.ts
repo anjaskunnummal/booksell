@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { ConfirmationComponent } from 'src/app/modals_/confirmation/confirmation.component';
 import { BookService } from 'src/app/services/book.service';
 import { AddBookComponent } from '../add-book/add-book.component';
 
@@ -69,31 +70,34 @@ export class BookListComponent implements OnInit {
       });
   }
   editBook(book: any): void {
-    // this.router.navigate(['add-book'])
-    // const dialogRef = this._matDialog.open(AddBookComponent, {
-    //   disableClose: true,
-    //   autoFocus: false,
-    //   width: '50%',
-    // });
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   if (result == 'check_close') {
-    //     console.log(`Dialog result: ${result}`);
-    //     this.getProductList();
-    //   }
-    // });
-
-    this.router.navigate(['edit-book/'+book.id_key])
+    this.router.navigate(['edit-book/' + book.id_key]);
   }
 
   deleteBook(book: any) {
-    this.bookService
-      .deleteBook(book.id_key)
-      .then(() => {
-        this.openSnackBar('Book deleted Successfully');
-      })
-      .catch((err: any) => {
-        this.openSnackBar('something went wrong!!');
-      });
+    const dialogRef = this._matDialog.open(ConfirmationComponent, {
+      disableClose: true,
+      autoFocus: false,
+      data: {
+        message:
+          'Are you sure you want to remove this Book? This action cannot be undone!',
+        title: 'Delete Book',
+        action: 'Delete',
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result == 'confirm') {
+        this.bookService
+          .deleteBook(book.id_key)
+          .then(() => {
+            this.openSnackBar('Book deleted Successfully');
+          })
+          .catch((err: any) => {
+            this.openSnackBar('something went wrong!!');
+          });
+        this.getProductList();
+      }
+     
+    });
   }
 
   openSnackBar(message: string) {
