@@ -3,12 +3,24 @@
     <div class="login-box">
       <div class="login-cont">
         <div>
-          <h1>Login</h1>
+          <h1>Register</h1>
         </div>
         <div>
           <mat-form-field appearance="outline">
-            <mat-label>Username(Email)</mat-label>
+            <mat-label>First Name</mat-label>
             <input type="text" matInput />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input type="text" matInput />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="text" matInput/>
           </mat-form-field>
         </div>
         <div>
@@ -18,14 +30,7 @@
           </mat-form-field>
         </div>
         <div>
-          <button mat-raised-button class="btn">Sign in</button>
-        </div>
-        <div style="padding-top: 5px">
-          <p>
-            Don't have an account?<a style="color: red; cursor: pointer;"
-             [routerLink]="['/register']" >Sign up</a
-            >
-          </p>
+          <button mat-raised-button class="btn">Sign up</button>
         </div>
       </div>
     </div>
