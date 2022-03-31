@@ -21,7 +21,7 @@ export class AddBookComponent implements OnInit {
   public button_spinner:boolean = false;
 
   public book_id?:any=null;
-  // public isEditingMode : boolean = false;
+  public isEditingMode : boolean = false;
 
   public books:any=[]
 
@@ -54,12 +54,27 @@ export class AddBookComponent implements OnInit {
   }
 
   setBookdetails(books:any){
+    this.bookForm = new FormGroup({
+      name: new FormControl(books.name, Validators.required),
+      description: new FormControl(books.description),
+      author_name: new FormControl(books.author_name),
+      price: new FormControl(books.price),
+      year: new FormControl(books.year),
+      category: new FormControl(books.category),
+    });
+    this.imageURL = books.image;
+    this.isEditingMode = true
   }
 
   Submit() {
     if (this.bookForm.invalid) {
       this.openSnackBar('Some Field Missing');
       return;
+    }
+
+    if(this.isEditingMode){
+      this.editBook(this.bookForm.value)
+      return
     }
 
     this.createBook(this.bookForm.value);
@@ -84,6 +99,10 @@ export class AddBookComponent implements OnInit {
     }).catch((err:any)=>{
       this.openSnackBar('something went wrong!!')
     });
+  }
+
+  editBook(bookform:any){
+
   }
 
   onFileChanged(event:any) {
