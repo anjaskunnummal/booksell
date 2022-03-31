@@ -102,6 +102,24 @@ export class AddBookComponent implements OnInit {
   }
 
   editBook(bookform:any){
+    this.button_spinner = true
+    this.bookRequest = {
+      name: bookform.name,
+      description: bookform.description,
+      author_name: bookform.author_name,
+      price: bookform.price,
+      year: bookform.year,
+      image: this.imageURL ? this.imageURL : '',
+      category : bookform.category
+    };
+    this.bookService.updateBook(this.book_id,this.bookRequest).then(() => {
+      this.button_spinner = false;
+      this.openSnackBar('Book updated Successfully');
+      this.router.navigate(['/'])
+
+    }).catch((err:any)=>{
+      this.openSnackBar('something went wrong!!')
+    });
 
   }
 

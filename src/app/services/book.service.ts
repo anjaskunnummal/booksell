@@ -34,7 +34,7 @@ deleteBook(key: string):any {
 
 updateBook(key:string,requestParams:BookCreateApirequest):any{
   let ref = this.db.list("books")
-  return ref.update(key,requestParams)
+  return ref.set(key,requestParams)
 }
 
 }
