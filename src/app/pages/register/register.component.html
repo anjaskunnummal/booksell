@@ -5,33 +5,41 @@
         <div>
           <h1>Register</h1>
         </div>
-        <div>
+        <form [formGroup]="registerForm" (ngSubmit)="Submit()">
+        <!-- <div>
           <mat-form-field appearance="outline">
             <mat-label>First Name</mat-label>
-            <input type="text" matInput />
+            <input type="text" matInput formControlName="first_name" />
           </mat-form-field>
-        </div>
-        <div>
+        </div> -->
+        <!-- <div>
           <mat-form-field appearance="outline">
             <mat-label>Last Name</mat-label>
-            <input type="text" matInput />
+            <input type="text" matInput formControlName="last_name" />
           </mat-form-field>
-        </div>
+        </div> -->
         <div>
           <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
-            <input type="text" matInput/>
+            <input type="text" matInput formControlName="email"/>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
-            <input type="text" matInput type="password" />
+            <input type="text" matInput type="password" formControlName="password" />
           </mat-form-field>
         </div>
+        <!-- <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input type="text" matInput type="password" formControlName="confirm_password" />
+          </mat-form-field>
+        </div> -->
         <div class="button-status">
           <button mat-raised-button class="btn">Sign up</button>
         </div>
+      </form>
       </div>
     </div>
   </div>

@@ -5,28 +5,32 @@
         <div>
           <h1>Login</h1>
         </div>
-        <div>
-          <mat-form-field appearance="outline">
-            <mat-label>Username(Email)</mat-label>
-            <input type="text" matInput />
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field appearance="outline">
-            <mat-label>Password</mat-label>
-            <input type="text" matInput type="password" />
-          </mat-form-field>
-        </div>
-        <div>
-          <button mat-raised-button class="btn">Sign in</button>
-        </div>
-        <div style="padding-top: 5px">
-          <p>
-            Don't have an account?<a style="color: red; cursor: pointer;"
-             [routerLink]="['/register']" >Sign up</a
-            >
-          </p>
-        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="Submit()">
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Username(Email)</mat-label>
+              <input type="text" matInput formControlName="username"/>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input type="text" matInput type="password" formControlName="password" />
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-raised-button class="btn">Sign in</button>
+          </div>
+          <div style="padding-top: 5px">
+            <p>
+              Don't have an account?<a
+                style="color: red; cursor: pointer"
+                [routerLink]="['/register']"
+                >Sign up</a
+              >
+            </p>
+          </div>
+        </form>
       </div>
     </div>
   </div>

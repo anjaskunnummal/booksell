@@ -1,7 +1,7 @@
 <div class="main-container">
   <div class="form-container">
     <div class="form-header">
-      <h2>Add Book</h2>
+      <h2>{{isEditingMode?'Edit Book':'Add Book'}}</h2>
     </div>
     <form [formGroup]="bookForm" (ngSubmit)="Submit()">
       <div class="h-stack">
@@ -54,7 +54,7 @@
       </div>
       <div class="form-btn">
         <button  mat-flat-button>
-          <span *ngIf="!button_spinner">Save</span>
+          <span *ngIf="!button_spinner">{{isEditingMode?'Update':'Save'}}</span>
           <mat-progress-spinner
             *ngIf="button_spinner"
             [diameter]="24"

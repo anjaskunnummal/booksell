@@ -10,6 +10,8 @@ export class SidebarComponent implements OnInit {
   public menuItems?: any[];
   public isCollapsed = true;
 
+  public user_Name ?:any=null;
+
   navItems: NavItem[] = [
     {
       displayName: 'Home',
@@ -28,9 +30,22 @@ export class SidebarComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor() {
+    
+    var user  = JSON.parse(localStorage.getItem('user_details') || 'null')
+    if(user!=null){
+    var user_name:string = user.email
+    this.user_Name = user_name.substring(0, user_name.indexOf('@')) 
+    }
+    else{
+      this.user_Name = ''
+    }
+    
+  
+   }
 
   ngOnInit() {
+
   }
 
 }

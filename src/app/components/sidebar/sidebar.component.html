@@ -3,8 +3,8 @@
   <div class="logo">
     <img src="../../../assets/img/logo-svg.svg" width="100px" height="100px" />
   </div>
-  <div class="user_details">
-    <h3 style="color: white">Welcome Back!!</h3>
+  <div class="user_details" *ngIf="user_Name">
+    <h3 style="color: white">Welcome {{user_Name}}</h3>
   </div>
 
   <!-- </div> -->

@@ -6,14 +6,20 @@ import { RouterModule } from '@angular/router';
 import { AuthLayoutRoutes } from './auth-layout.routing';
 import { RegisterComponent } from '../pages/register/register.component';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SampleComponent } from './../pages/sample/sample.component';
 
 @NgModule({
   imports: [
-    CommonModule,
+ 
+  CommonModule,
     RouterModule.forChild(AuthLayoutRoutes),
-    AngularMaterialModule
+    AngularMaterialModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   declarations: [LoginComponent,
-  RegisterComponent]
+  RegisterComponent,
+  SampleComponent]
 })
 export class AuthLayoutModule { }

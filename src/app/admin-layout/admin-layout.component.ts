@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NavService } from 'src/app/nav.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-admin-layout',
@@ -19,11 +20,20 @@ export class AdminLayoutComponent implements OnInit {
   navbutton = false
   @ViewChild('sidenav', { static: true }) sidenav!: MatSidenav;
 
+
+  public user_view = false
+
   constructor(
     private router: Router, 
     private navService: NavService,
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private authservice:AuthenticationService
   ) { 
+    
+    var user  = JSON.parse(localStorage.getItem('user_details') || 'null')
+    if(user!=null){
+      this.user_view = true
+    }
     // this.isMobileScreen = breakpointObserver.isMatched([
     //   Breakpoints.HandsetLandscape,
     //   Breakpoints.HandsetPortrait
@@ -77,6 +87,14 @@ export class AdminLayoutComponent implements OnInit {
       this.opened = true;
       this.navbutton=false
     }
+  }
+
+  logout(){
+    this.authservice.logout()
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('user_details')
+    this.router.navigate(['/thankyou']);
+    this.user_view = false
   }
 
   isBiggerScreen() {
