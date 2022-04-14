@@ -32,12 +32,22 @@ export class BookListComponent implements OnInit {
 
   public isLoadingBooks: boolean = false;
 
+  public user_id?:string
+
+
+  public new_book_list : any=[]
+
   constructor(
     private bookService: BookService,
     private router: Router,
     private _snackbar: MatSnackBar,
     private _matDialog: MatDialog
-  ) {}
+  ) {
+
+    var user_details = JSON.parse(localStorage.getItem('user_details')||'{null}')
+
+    this.user_id = user_details.uid
+  }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -65,7 +75,18 @@ export class BookListComponent implements OnInit {
         } else {
           item = [];
         }
-        this.dataSource = new MatTableDataSource(item);
+
+        for(var i=0;i<item.length;i++){
+          var book_items :any = item[i].books
+          if(book_items.user_id==this.user_id){
+            this.new_book_list.push(item[i])
+          }
+        }
+
+        console.log(this.new_book_list)
+
+
+        this.dataSource = new MatTableDataSource(this.new_book_list);
         this.dataSource.paginator != this.paginator;
       });
   }

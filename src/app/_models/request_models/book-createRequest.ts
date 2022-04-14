@@ -1,6 +1,7 @@
 
 
 export class BookCreateApirequest{
+  user_id?:string;
   name?:string;
   description ?: string;
   author_name ?: string;

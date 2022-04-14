@@ -25,6 +25,8 @@ export class AddBookComponent implements OnInit {
 
   public books:any=[]
 
+  public user_id?:string;
+
   public bookForm: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
     description: new FormControl(''),
@@ -47,6 +49,9 @@ export class AddBookComponent implements OnInit {
         this.setBookdetails(this.books)
       })
     }
+    var user_details = JSON.parse(localStorage.getItem('user_details')||'{null}')
+    this.user_id = user_details.uid;
+    // console.log("user id",this.user_id)
   }
 
   ngOnInit() {
@@ -83,6 +88,7 @@ export class AddBookComponent implements OnInit {
   createBook(bookform: any) {
     this.button_spinner = true
     this.bookRequest = {
+      user_id : this.user_id,
       name: bookform.name,
       description: bookform.description,
       author_name: bookform.author_name,
@@ -104,6 +110,7 @@ export class AddBookComponent implements OnInit {
   editBook(bookform:any){
     this.button_spinner = true
     this.bookRequest = {
+      user_id : this.user_id,
       name: bookform.name,
       description: bookform.description,
       author_name: bookform.author_name,
