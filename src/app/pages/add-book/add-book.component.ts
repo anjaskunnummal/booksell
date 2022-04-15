@@ -18,6 +18,8 @@ export class AddBookComponent implements OnInit {
   public imageURL?: any;
   public imagePath?:string;
 
+  public book_images : any = []
+
   public button_spinner:boolean = false;
 
   public book_id?:any=null;
@@ -67,7 +69,8 @@ export class AddBookComponent implements OnInit {
       year: new FormControl(books.year),
       category: new FormControl(books.category),
     });
-    this.imageURL = books.image;
+    // this.imageURL = books.image;
+    this.book_images = books.image
     this.isEditingMode = true
   }
 
@@ -79,6 +82,11 @@ export class AddBookComponent implements OnInit {
 
     if(this.isEditingMode){
       this.editBook(this.bookForm.value)
+      return
+    }
+
+    if(this.book_images.length==0){
+      this.openSnackBar("Please add images");
       return
     }
 
@@ -94,7 +102,7 @@ export class AddBookComponent implements OnInit {
       author_name: bookform.author_name,
       price: bookform.price,
       year: bookform.year,
-      image: this.imageURL ? this.imageURL : '',
+      image: this.book_images ? this.book_images : '',
       category : bookform.category
     };
     this.bookService.addBooks(this.bookRequest).then(() => {
@@ -116,7 +124,7 @@ export class AddBookComponent implements OnInit {
       author_name: bookform.author_name,
       price: bookform.price,
       year: bookform.year,
-      image: this.imageURL ? this.imageURL : '',
+      image: this.book_images ? this.book_images : '',
       category : bookform.category
     };
     this.bookService.updateBook(this.book_id,this.bookRequest).then(() => {
@@ -138,7 +146,8 @@ export class AddBookComponent implements OnInit {
     this.imagePath = file;
     reader.readAsDataURL(file);
     reader.onload = (_event) => {
-      this.imageURL = reader.result;
+      // this.imageURL = reader.result;
+      this.book_images.push(reader.result)
     
     };
   }

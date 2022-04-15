@@ -48,8 +48,8 @@
             (change)="onFileChanged($event)"
           />
         </mat-form-field>
-        <span *ngIf="imageURL">
-          <img width="200" height="150" [src]="imageURL" />
+        <span *ngFor="let img of book_images">
+          <img width="200" height="150" [src]="img" style="padding-left: 0.3rem;" />
         </span>
       </div>
       <div class="form-btn">

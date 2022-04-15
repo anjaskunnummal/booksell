@@ -2,10 +2,10 @@
 <div mat-dialog-content>
   <div class="book-view">
     <div class="book-image">
-      <img class="img" src="{{ book_details.image }}" />
+      <img class="img" src="{{ images }}" />
       <div class="arrow-icon">
-        <mat-icon>arrow_left</mat-icon>
-        <mat-icon>arrow_right</mat-icon>
+        <mat-icon (click)="previous_image(images)">arrow_left</mat-icon>
+        <mat-icon (click)="next_image(images)">arrow_right</mat-icon>
       </div>
     </div>
     <div class="book-details">
