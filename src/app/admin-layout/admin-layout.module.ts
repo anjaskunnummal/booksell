@@ -10,10 +10,13 @@ import { AddBookComponent } from '../pages/add-book/add-book.component';
 import { BookListComponent } from '../pages/book-list/book-list.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ConfirmationComponent } from '../modals_/confirmation/confirmation.component';
+import { BookViewComponent } from '../pages/book-view/book-view.component';
+import { CartComponent } from '../pages/cart/cart.component';
+
 
 @NgModule({
   imports: [
-    CommonModule,
+  CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
     ReactiveFormsModule,
@@ -24,6 +27,8 @@ import { ConfirmationComponent } from '../modals_/confirmation/confirmation.comp
   HomeComponent,
   AddBookComponent,
   BookListComponent,
-  ConfirmationComponent]
+  ConfirmationComponent,
+  BookViewComponent,
+  CartComponent]
 })
 export class AdminLayoutModule { }

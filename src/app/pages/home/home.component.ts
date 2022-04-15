@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { MatDialog } from '@angular/material/dialog';
 import { BookService } from 'src/app/services/book.service';
+import { BookViewComponent } from '../book-view/book-view.component';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +14,7 @@ export class HomeComponent implements OnInit {
   public loading_books: boolean = false;
   term = '';
 
-  constructor(private bookService: BookService) {}
+  constructor(private bookService: BookService,private _matDialog: MatDialog) {}
 
   ngOnInit() {
     this.fetchBook();
@@ -45,40 +47,21 @@ export class HomeComponent implements OnInit {
         console.log(err);
       };
   }
+
+  bookView(book:any){
+    const dialogRef = this._matDialog.open(BookViewComponent, {
+      disableClose: true,
+      autoFocus: false,
+      minWidth:'40%',
+      data: {
+       book_info : book
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result == 'confirm') {
+      }
+     
+    });
+  }
 }
 
-//   {
-//     image : 'https://5.imimg.com/data5/SELLER/Default/2021/2/SA/IQ/HS/49559104/img-20210211-121925-500x500.jpg',
-//     name  :'ABC',
-//     price : 499
-//   },
-//   {
-//     image : 'https://media.gq.com/photos/5ad64204c8be07604e8b5f2f/1:1/w_1332,h_1332,c_limit/21-books-GQ-April-2018-041718-3x2.jpg',
-//     name  :'ABC',
-//     price : 499
-//   },
-//   {
-//     image : 'https://media.gq.com/photos/5ad64204c8be07604e8b5f2f/1:1/w_1332,h_1332,c_limit/21-books-GQ-April-2018-041718-3x2.jpg',
-//     name  :'ABC',
-//     price : 499
-//   },
-//   {
-//     image : 'https://media.gq.com/photos/5ad64204c8be07604e8b5f2f/1:1/w_1332,h_1332,c_limit/21-books-GQ-April-2018-041718-3x2.jpg',
-//     name  :'ABC',
-//     price : 499
-//   },
-//   {
-//     image : 'https://media.gq.com/photos/5ad64204c8be07604e8b5f2f/1:1/w_1332,h_1332,c_limit/21-books-GQ-April-2018-041718-3x2.jpg',
-//     name  :'ABC',
-//     price : 499
-//   },
-//   {
-//     image : 'https://media.gq.com/photos/5ad64204c8be07604e8b5f2f/1:1/w_1332,h_1332,c_limit/21-books-GQ-April-2018-041718-3x2.jpg',
-//     name  :'ABC',
-//     price : 499
-//   },
-//   {
-//     image : 'https://media.gq.com/photos/5ad64204c8be07604e8b5f2f/1:1/w_1332,h_1332,c_limit/21-books-GQ-April-2018-041718-3x2.jpg',
-//     name  :'ABC',
-//     price : 499
-//   }

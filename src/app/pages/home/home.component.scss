@@ -14,7 +14,7 @@ mat-form-field{
 }
 .card {
   width: 190px;
-  height: 300px;
+  height: auto;
   justify-content: space-between;
   // border: 2px solid black;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
@@ -47,6 +47,11 @@ mat-form-field{
  padding-top: 5rem;
 }
 
+.view-btn{
+  background-color: #17b099;
+  color: white;
+}
+
 
 
 
@@ -66,7 +71,7 @@ mat-form-field{
   }
   .card {
     width: 115px;
-    height: 200px;
+    height: auto;
     justify-content: space-between;
     // border: 2px solid black;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,

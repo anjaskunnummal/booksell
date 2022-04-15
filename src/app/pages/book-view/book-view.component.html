@@ -1,0 +1,21 @@
+<h1 mat-dialog-title><button mat-flat-button (click)="cancel()"><mat-icon>close</mat-icon></button></h1>
+<div mat-dialog-content>
+  <div class="book-view">
+    <div class="book-image">
+      <img class="img" src="{{ book_details.image }}" />
+    </div>
+    <div class="book-details">
+      <div>
+        <h2>{{ book_details.name }}</h2>
+      </div>
+      <div>
+        <h5>{{ book_details.description }}</h5>
+      </div>
+      <div>Auther : {{ book_details.author_name }}</div>
+      <div>Price : {{ book_details.price }}</div>
+      <div>year : {{ book_details.year }}</div>
+      <div>Category : {{ book_details.category }}</div>
+      <div style="padding-top: 2rem;"><button mat-raised-button color="warn">Add to Cart</button></div>
+    </div>
+  </div>
+</div>

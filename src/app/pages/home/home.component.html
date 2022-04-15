@@ -21,8 +21,8 @@
       <div class="card-body">
         {{ book.books.price | currency: "INR" }}
       </div>
-      <div class="card-body">
-        <button mat-flat-button color="warn">Add to cart</button>
+      <div class="card-body" style="padding-top: 1rem;padding-bottom: 0.5rem;">
+        <button class="view-btn" mat-flat-button (click)="bookView(book.books)">View Book</button>
       </div>
     </div>
   </div>
