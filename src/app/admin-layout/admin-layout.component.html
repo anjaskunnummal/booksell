@@ -4,8 +4,8 @@
   </button>
   <span style="color: white;font-weight: bold;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Midpage</span>
   <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" >
-      <mat-icon matBadge="5" matBadgeColor="warn">shopping_basket</mat-icon>
+    <button mat-icon-button class="example-icon favorite-icon" (click)="gotoCart()" >
+      <mat-icon matBadge="{{cart_length}}" matBadgeColor="warn">shopping_basket</mat-icon>
     </button>
     <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu" *ngIf="user_view==true"  >
       <mat-icon>person</mat-icon>

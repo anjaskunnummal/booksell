@@ -1,4 +1,6 @@
-<h1 mat-dialog-title><button mat-flat-button (click)="cancel()"><mat-icon>close</mat-icon></button></h1>
+<h1 mat-dialog-title>
+  <button mat-flat-button (click)="cancel()"><mat-icon>close</mat-icon></button>
+</h1>
 <div mat-dialog-content>
   <div class="book-view">
     <div class="book-image">
@@ -19,7 +21,9 @@
       <div>Price : {{ book_details.price }}</div>
       <div>year : {{ book_details.year }}</div>
       <div>Category : {{ book_details.category }}</div>
-      <div style="padding-top: 2rem;"><button mat-raised-button color="warn">Add to Cart</button></div>
+      <div style="padding-top: 2rem">
+        <button (click)="addCart(book_details)" mat-raised-button color="warn">Add to Cart</button>
+      </div>
     </div>
   </div>
 </div>

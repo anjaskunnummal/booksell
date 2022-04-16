@@ -1,6 +1,6 @@
 import { asNativeElements, Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { registerApiRequest } from '../_models/register-createRequest';
+import { registerApiRequest } from '../_models/request_models/register-createRequest';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 

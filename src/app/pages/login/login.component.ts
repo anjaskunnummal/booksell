@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { loginApiRequest } from 'src/app/_models/register-createRequest';
+import { loginApiRequest } from 'src/app/_models/request_models/register-createRequest';
+
 
 @Component({
   selector: 'app-login',

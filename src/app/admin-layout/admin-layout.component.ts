@@ -4,6 +4,9 @@ import { NavService } from 'src/app/nav.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { AuthenticationService } from '../services/authentication.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CartComponent } from '../pages/cart/cart.component';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-admin-layout',
@@ -21,18 +24,27 @@ export class AdminLayoutComponent implements OnInit {
   @ViewChild('sidenav', { static: true }) sidenav!: MatSidenav;
 
 
-  public user_view = false
+  public user_view = false;
+  public user_id ?:string;
+
+  public cart_length ?:any;
+  public cart:any=[]
 
   constructor(
     private router: Router, 
     private navService: NavService,
     private breakpointObserver: BreakpointObserver,
-    private authservice:AuthenticationService
+    private authservice:AuthenticationService,
+    private _matDialog: MatDialog,
+    private cartService:CartService
   ) { 
     
     var user  = JSON.parse(localStorage.getItem('user_details') || 'null')
     if(user!=null){
-      this.user_view = true
+      this.user_view = true;
+      this.user_id = user.uid;
+      this.getCartlength()
+      
     }
     // this.isMobileScreen = breakpointObserver.isMatched([
     //   Breakpoints.HandsetLandscape,
@@ -73,7 +85,25 @@ export class AdminLayoutComponent implements OnInit {
       // this.navbutton = true
     }
 
+  
+
    
+  }
+
+  getCartlength(){
+    this.cart=[]
+    this.cartService.getCartLength().valueChanges().subscribe((item:any)=>{
+      if(this.cart.length>0){
+        this.cart=[]
+      }
+      for(var i=0;i<item.length;i++){
+        if(item[i].user_id==this.user_id){
+          this.cart.push(item[i])
+          this.cart_length = this.cart.length
+        }
+
+      }
+    })
   }
 
   @HostListener('window:resize', ['$event'])
@@ -104,6 +134,20 @@ export class AdminLayoutComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  gotoCart(){
+    const dialogRef = this._matDialog.open(CartComponent, {
+      disableClose: true,
+      autoFocus: false,
+      height:'70%'
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result == 'confirm') {
+      }
+     
+    });
+
   }
 
   // ngAfterViewInit() {
