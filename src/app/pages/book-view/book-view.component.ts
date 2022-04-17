@@ -72,6 +72,8 @@ export class BookViewComponent implements OnInit {
         year: book.year,
         image: book.image,
         category: book.category,
+        user_name : book.user_name,
+        phone_number:book.phone_number
       };
       this.cartService
         .addtoCart(this.cartRequest)

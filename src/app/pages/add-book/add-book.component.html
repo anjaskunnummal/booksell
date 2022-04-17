@@ -52,6 +52,20 @@
           <img width="200" height="150" [src]="img" style="padding-left: 0.3rem;" />
         </span>
       </div>
+
+      <div style="display: flex;justify-content: center;">..Add your details..</div>
+
+      <div class="h-stack">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input type="text" matInput formControlName="user_name" type="text" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Phone number</mat-label>
+          <input type="text" matInput formControlName="phone_number" type="tel" />
+        </mat-form-field>
+      </div>
+
       <div class="form-btn">
         <button  mat-flat-button>
           <span *ngIf="!button_spinner">{{isEditingMode?'Update':'Save'}}</span>

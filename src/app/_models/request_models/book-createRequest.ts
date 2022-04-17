@@ -9,4 +9,6 @@ export class BookCreateApirequest{
   price?:number;
   image?:string;
   category?:string;
+  user_name?:string;
+  phone_number?:number
 }

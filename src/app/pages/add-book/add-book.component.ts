@@ -36,6 +36,8 @@ export class AddBookComponent implements OnInit {
     price: new FormControl(0),
     year: new FormControl(''),
     category: new FormControl(''),
+    user_name : new FormControl(''),
+    phone_number : new FormControl()
   });
 
   constructor(
@@ -68,6 +70,8 @@ export class AddBookComponent implements OnInit {
       price: new FormControl(books.price),
       year: new FormControl(books.year),
       category: new FormControl(books.category),
+      user_name : new FormControl(books.user_name),
+      phone_number : new FormControl(books.phone_number)
     });
     // this.imageURL = books.image;
     this.book_images = books.image
@@ -103,7 +107,9 @@ export class AddBookComponent implements OnInit {
       price: bookform.price,
       year: bookform.year,
       image: this.book_images ? this.book_images : '',
-      category : bookform.category
+      category : bookform.category,
+      user_name : bookform.user_name,
+      phone_number:bookform.phone_number
     };
     this.bookService.addBooks(this.bookRequest).then(() => {
       this.button_spinner = false;
@@ -125,7 +131,9 @@ export class AddBookComponent implements OnInit {
       price: bookform.price,
       year: bookform.year,
       image: this.book_images ? this.book_images : '',
-      category : bookform.category
+      category : bookform.category,
+      user_name : bookform.user_name,
+      phone_number:bookform.phone_number
     };
     this.bookService.updateBook(this.book_id,this.bookRequest).then(() => {
       this.button_spinner = false;
