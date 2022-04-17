@@ -22,7 +22,14 @@
       <div>year : {{ book_details.year }}</div>
       <div>Category : {{ book_details.category }}</div>
       <div style="padding-top: 2rem">
-        <button (click)="addCart(book_details)" mat-raised-button color="warn">Add to Cart</button>
+        <button (click)="addCart(book_details)" mat-raised-button color="warn">
+          <span *ngIf="!loading_tocart">Add to Cart</span>
+          <mat-spinner
+            *ngIf="loading_tocart"
+            [diameter]="24"
+            [mode]="'indeterminate'"
+          ></mat-spinner>
+        </button>
       </div>
     </div>
   </div>

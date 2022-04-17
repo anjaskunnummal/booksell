@@ -25,6 +25,8 @@ export class BookViewComponent implements OnInit {
   public user_id?: string;
   public user_info?: any;
 
+  public loading_tocart:boolean = false;
+
   constructor(
     public dialogRef: MatDialogRef<BookViewComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -63,6 +65,7 @@ export class BookViewComponent implements OnInit {
       });
       return;
     } else {
+      this.loading_tocart = true
       this.cartRequest = {
         user_id: this.user_id,
         name: book.name,
@@ -78,7 +81,9 @@ export class BookViewComponent implements OnInit {
       this.cartService
         .addtoCart(this.cartRequest)
         .then(() => {
+          this.loading_tocart = false
           this.openSnackBar('Added to cart');
+          this.dialogRef.close('confirm')
         })
         .catch((err: any) => {
           this.openSnackBar('something went wrong!!');

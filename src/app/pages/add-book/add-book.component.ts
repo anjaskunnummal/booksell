@@ -37,7 +37,7 @@ export class AddBookComponent implements OnInit {
     year: new FormControl(''),
     category: new FormControl(''),
     user_name : new FormControl(''),
-    phone_number : new FormControl()
+    phone_number : new FormControl('',Validators.required)
   });
 
   constructor(

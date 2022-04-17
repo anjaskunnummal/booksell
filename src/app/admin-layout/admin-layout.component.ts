@@ -96,6 +96,9 @@ export class AdminLayoutComponent implements OnInit {
       if(this.cart.length>0){
         this.cart=[]
       }
+      if(this.cart.length==0){
+        this.cart_length=0
+      }
       for(var i=0;i<item.length;i++){
         if(item[i].user_id==this.user_id){
           this.cart.push(item[i])

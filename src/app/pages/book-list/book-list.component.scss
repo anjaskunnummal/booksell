@@ -27,3 +27,8 @@
   span{
     cursor: pointer;
   }
+
+  .mat-spinner::ng-deep circle {
+    stroke: black;
+  }
+  

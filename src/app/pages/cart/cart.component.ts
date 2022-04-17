@@ -1,5 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ConfirmationComponent } from 'src/app/modals_/confirmation/confirmation.component';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -14,7 +16,9 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService:CartService,
     public dialogRef: MatDialogRef<CartComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,) { 
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private _matDialog: MatDialog,
+    private _snackBar:MatSnackBar) { 
 
       var user_details = JSON.parse(localStorage.getItem('user_details')||'{null}')
 
@@ -54,8 +58,44 @@ export class CartComponent implements OnInit {
     )
   }
 
+  remove(book:any){
+
+    const dialogRef = this._matDialog.open(ConfirmationComponent, {
+      disableClose: true,
+      autoFocus: false,
+      data: {
+        message:
+          'Are you sure you want to remove this Book? This action cannot be undone!',
+        title: 'Remove Book',
+        action: 'Remove',
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result == 'confirm') {
+        this.cartService
+          .removeFromcart(book.id_key)
+          .then(() => {
+            this.openSnackBar('removed from cart');
+          })
+          .catch((err: any) => {
+            this.openSnackBar('something went wrong!!');
+          });
+          // this.getCartitems()
+          this.dialogRef.close('confirm')
+      }
+     
+    });
+
+  }
+
   cancel(){
     this.dialogRef.close('confirm')
+  }
+
+  openSnackBar(message:string){
+    this._snackBar.open(message,'close',{
+      duration:2000
+    })
   }
 
 }

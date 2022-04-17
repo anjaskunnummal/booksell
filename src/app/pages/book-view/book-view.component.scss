@@ -19,6 +19,12 @@
         cursor: pointer;
     }
 }
+
+.mat-spinner::ng-deep circle {
+    stroke: white;
+  }
+  
+
 @media only screen and (max-width: 480px) {
     .book-view{
         display: flex;

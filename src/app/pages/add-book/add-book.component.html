@@ -69,11 +69,11 @@
       <div class="form-btn">
         <button  mat-flat-button>
           <span *ngIf="!button_spinner">{{isEditingMode?'Update':'Save'}}</span>
-          <mat-progress-spinner
+          <mat-spinner
             *ngIf="button_spinner"
             [diameter]="24"
             [mode]="'indeterminate'"
-          ></mat-progress-spinner>
+          ></mat-spinner>
         </button>
       </div>
     </form>

@@ -25,4 +25,9 @@ getCartLength(){
   return ref
 }
 
+removeFromcart(key: string):any {
+  let ref = this.db.list("cart")
+  return ref.remove(key);
+}
+
 }

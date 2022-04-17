@@ -1,24 +1,35 @@
 <div class="header">
   <div><h2>Items in Cart</h2></div>
-  <div><button mat-flat-button (click)="cancel()"><mat-icon>close</mat-icon></button></div>
+  <div>
+    <button mat-flat-button (click)="cancel()">close</button>
+  </div>
 </div>
 <div class="progress-bar" *ngIf="loading_books">
-  <mat-spinner color="warn"></mat-spinner>
+  <mat-spinner color="warn" [diameter]="40"></mat-spinner>
+</div>
+<div
+  *ngIf="cart_item.length == 0"
+  style="display: flex; justify-content: center; padding-top: 4rem"
+>
+  No items in cart
 </div>
 <div mat-dialog-content *ngFor="let book of cart_item">
   <div class="book-view">
+    <mat-icon (click)="remove(book)" style="cursor: pointer">close</mat-icon>
     <div class="book-image">
-      <img class="img" src="{{book.books.image[0]}}" />
+      <img class="img" src="{{ book.books.image[0] }}" />
     </div>
     <div class="book-details">
-      <h2>{{book.books.name}}</h2>
-      <div>{{book.books.author_name}}</div>
-      <div>{{book.books.year}}</div>
-      <div>{{book.books.price}}</div>
+      <h2>{{ book.books.name }}</h2>
+      <div>{{ book.books.author_name }}</div>
+      <div>{{ book.books.year }}</div>
+      <div>{{ book.books.price }}</div>
       <div style="padding-top: 0.2rem">
-        <button mat-flat-button color="warn"><a href='tel:+91+{{book.books.phone_number}}'>Call for Buy</a></button>
+        <button mat-flat-button color="warn">
+          <a href="tel:+91+{{ book.books.phone_number }}">Call for Buy</a>
+        </button>
       </div>
     </div>
   </div>
-  <hr style="border:1px black dotted;">
+  <hr style="border: 1px black dotted" />
 </div>
