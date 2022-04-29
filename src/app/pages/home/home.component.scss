@@ -13,7 +13,7 @@ mat-form-field{
   // overflow-x: auto;
 }
 .card {
-  width: 190px;
+  width: 140px;
   height: auto;
   justify-content: space-between;
   // border: 2px solid black;
@@ -24,11 +24,13 @@ mat-form-field{
   display: flex;
   justify-content: center;
   img {
-    width: 188px;
+    width: 138px;
     height: 170px;
     border: 1px solid whitesmoke;
   }
 }
+
+
 
 .card-body {
   display: flex;
@@ -68,14 +70,15 @@ mat-form-field{
   .main-container {
     padding: 1rem 0 2rem 1rem;
     display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+    // gap: 10px;
+    padding-right: 1rem;
+    justify-content: space-between;
     // overflow-x: auto;
   }
   .card {
-    width: 115px;
+    width: 95px;
     height: auto;
-    justify-content: space-between;
+    // justify-content: space-between;
     // border: 2px solid black;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
       rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
@@ -84,8 +87,8 @@ mat-form-field{
     display: flex;
     justify-content: center;
     img {
-      width: 113px;
-      height: 100px;
+      width: 93px;
+      height: 110px;
       border: 1px solid whitesmoke;
     }
   }
